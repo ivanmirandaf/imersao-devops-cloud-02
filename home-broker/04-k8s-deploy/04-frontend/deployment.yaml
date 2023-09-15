@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: fabricioveronez/trader-web:v2
+        image: ivanmirandaf/trader-web:v1
         ports:
         - containerPort: 3000
         env:
@@ -31,6 +31,6 @@ spec:
   ports:
   - port: 80
     targetPort: 3000
-    # nodePort: 30001
-  type: LoadBalancer
-  #type: NodePort
+    nodePort: 30001
+  #type: LoadBalancer
+  type: NodePort

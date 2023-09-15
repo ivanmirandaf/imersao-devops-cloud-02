@@ -23,7 +23,7 @@ spec:
             value: primary 
           - name: MONGODB_REPLICA_SET_KEY
             value: replicasetkey123
-          - name: MONGODB_DATABASE
+          - name: MONGODB_DATABASE 
             value: "homebroker"
 ---
 apiVersion: v1
@@ -49,14 +49,14 @@ spec:
     metadata:
       labels:
         app: api
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "3000"
-        prometheus.io/path: "/metrics"
+      #annotations:
+        #prometheus.io/scrape: "true"
+        #prometheus.io/port: "3000"
+        #prometheus.io/path: "/metrics"
     spec:
       containers:
         - name: trader-api
-          image: fabricioveronez/trader-api:v1
+          image: ivanmirandaf/trader-api:v1
           ports:
           - containerPort: 3000
           env:
@@ -75,8 +75,8 @@ spec:
   ports:
   - port: 80
     targetPort: 3000
-    # nodePort: 30000
-  #type: NodePort
-  type: LoadBalancer
+    nodePort: 30000
+  type: NodePort
+  # type: LoadBalancer
 
 
